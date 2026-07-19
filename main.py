@@ -1,7 +1,7 @@
 # Author: Orian Ben Old
 from fastapi import FastAPI
-from .app.controller.user_controller import router as user_router
-from .app.repository.database import database
+from app.controller.user_controller import router as user_router
+from app.repository.database import database
 
 app = FastAPI(title="User Service")
 app.include_router(user_router)

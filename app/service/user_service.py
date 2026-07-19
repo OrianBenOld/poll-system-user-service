@@ -43,7 +43,7 @@ async def delete_user(user_id: int) -> None:
     await user_repository.delete_user(user_id)
     try:
         async with httpx.AsyncClient(timeout=5.0) as client:
-            await client.delete(f"{config.POLL_SERVICE_URL}/users/{user_id}/answers")
+            await client.delete(f"{config.POLL_SERVICE_URL}/polls/users/{user_id}/answers")
     except (httpx.RequestError, httpx.TimeoutException):
         # Poll service might be unavailable, but user deletion should still succeed
         pass
